@@ -6,41 +6,52 @@
   <title>Hanil POINT</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-white">
-  <div class="flex w-[1080px] h-[720px] mx-auto mt-10 relative">
+<body class="bg-white flex flex-col md:flex-row">
 
-    <!-- Sidebar -->
-    <aside class="w-44 h-full bg-white border-r border-zinc-100 p-4 flex flex-col relative">
-      <!-- Logo -->
-      <div class="absolute top-7 left-4 flex items-center gap-2">
-        <img class="w-6 h-6" src="https://placehold.co/25x25" alt="logo" />
-        <span class="text-black font-semibold text-base">HANIL POINT</span>
+  <!-- 모바일 상단바 -->
+  <header class="fixed top-0 w-full z-50 flex items-center justify-between p-4 bg-white border-b border-zinc-100 md:hidden">
+    <span class="text-black font-semibold text-base">HANIL POINT</span>
+    <nav class="flex gap-4">
+      <span class="text-black font-medium text-sm cursor-pointer">홈</span>
+      <span class="text-black font-medium text-sm cursor-pointer">게시판</span>
+      <span class="text-black font-medium text-sm cursor-pointer">공동구매</span>
+    </nav>
+  </header>
+
+  <!-- Sidebar (PC 전용) -->
+  <aside class="hidden md:flex w-44 h-screen bg-white border-r border-zinc-100 p-4 flex-col relative">
+    <!-- Logo -->
+    <div class="absolute top-7 left-4 flex items-center gap-2">
+      <img class="w-6 h-6" src="https://placehold.co/25x25" alt="logo" />
+      <span class="text-black font-semibold text-base">HANIL POINT</span>
+    </div>
+
+    <!-- Menu -->
+    <div class="mt-20 space-y-1">
+      <div class="h-10 px-4 flex items-center gap-4 rounded-lg bg-neutral-100 cursor-pointer">
+        <div class="w-6 h-6 bg-zinc-300"></div>
+        <span class="flex-1 text-center text-black font-medium text-base">홈</span>
       </div>
-
-      <!-- Menu -->
-      <div class="mt-20 space-y-1">
-        <div class="h-10 px-4 flex items-center gap-4 rounded-lg bg-neutral-100 cursor-pointer">
-          <div class="w-6 h-6 bg-zinc-300"></div>
-          <span class="flex-1 text-center text-black font-medium text-base">홈</span>
-        </div>
-        <div class="h-10 px-4 flex items-center gap-4 rounded-lg cursor-pointer">
-          <div class="w-6 h-6 bg-zinc-300"></div>
-          <span class="flex-1 text-center text-black font-medium text-base">게시판</span>
-        </div>
-        <div class="h-10 px-4 flex items-center gap-4 rounded-lg cursor-pointer">
-          <div class="w-6 h-6 bg-zinc-300"></div>
-          <span class="flex-1 text-center text-black font-medium text-base">공동구매</span>
-        </div>
+      <div class="h-10 px-4 flex items-center gap-4 rounded-lg cursor-pointer">
+        <div class="w-6 h-6 bg-zinc-300"></div>
+        <span class="flex-1 text-center text-black font-medium text-base">게시판</span>
       </div>
-    </aside>
+      <div class="h-10 px-4 flex items-center gap-4 rounded-lg cursor-pointer">
+        <div class="w-6 h-6 bg-zinc-300"></div>
+        <span class="flex-1 text-center text-black font-medium text-base">공동구매</span>
+      </div>
+    </div>
+  </aside>
 
-    <!-- Main Content -->
-    <main class="flex-1 p-6 overflow-y-auto relative">
-
+  <!-- Main Content -->
+  <main class="flex-1 p-6 pt-20 md:pt-6 relative flex flex-col min-h-screen">
+    <!-- 상단 영역 고정 -->
+    <div class="flex flex-col mb-4 space-y-6">
       <!-- User Info + Notices -->
-      <div class="flex items-start justify-between mb-6 gap-4">
-        <!-- Notices -->
-        <div class="flex flex-col space-y-2">
+      <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+
+        <!-- Notices (모바일에서 숨김) -->
+        <div class="hidden md:flex flex-col space-y-2">
           <div class="flex items-center gap-2">
             <div class="w-12 h-6 rounded-3xl flex items-center justify-center text-xs font-semibold text-red-500 bg-rose-300/30">공지</div>
             <span class="text-base font-semibold text-black">POINT 충전 시 주의사항</span>
@@ -52,8 +63,8 @@
         </div>
 
         <!-- User Box -->
-        <div class="w-72 h-16 bg-zinc-100 rounded-3xl backdrop-blur-[2px] relative flex items-center px-4">
-          <div class="flex items-center gap-3">
+        <div class="w-full md:w-72 h-16 bg-zinc-100 rounded-3xl backdrop-blur-[2px] relative flex items-center px-4">
+          <div class="flex items-center gap-3 w-full">
             <img class="w-12 h-12 rounded-full" src="https://placehold.co/50x50" alt="user" />
             <div class="flex flex-col">
               <div class="text-base font-semibold text-black">2학년 2반 남현주</div>
@@ -65,34 +76,27 @@
       </div>
 
       <!-- 나의 POINT 영역 -->
-        <div class="w-full h-48 relative mb-6">
-          <div class="w-full h-48 absolute bg-indigo-200 rounded-3xl backdrop-blur-[2px]"></div>
-        
-          <!-- 나의 POINT 글씨 (상단) -->
-          <div class="absolute top-4 left-6 text-black text-base font-semibold">나의 POINT</div>
-        
-          <!-- 아이콘 + 숫자 (나란히) -->
-          <div class="absolute top-16 left-6 flex items-center gap-4">
-            <img class="w-12 h-12" src="https://placehold.co/50x50" alt="icon" />
-            <span class="text-black text-4xl font-semibold">0</span>
-          </div>
-        
-          <!-- 버튼 공통 스타일 -->
-          <div class="absolute top-[154px] flex gap-4 left-6">
-            <div class="w-20 h-6 bg-indigo-300 rounded-3xl flex items-center justify-center text-xs font-semibold text-black">충전(현금)</div>
-            <div class="w-20 h-6 bg-indigo-300 rounded-3xl flex items-center justify-center text-xs font-semibold text-black">충전(이체)</div>
-            <div class="w-20 h-6 bg-indigo-300 rounded-3xl flex items-center justify-center text-xs font-semibold text-black">송금</div>
-          </div>
-        
-          <!-- 연결선 -->
-          <div class="absolute top-[139px] left-6 w-[calc(100%-48px)] h-[2px] bg-indigo-300"></div>
-        
-          <!-- 한도 -->
-          <div class="absolute right-6 top-[114px] text-right text-red-500 text-xs font-semibold">한도 50,000</div>
+      <div class="w-full h-48 relative">
+        <div class="w-full h-48 absolute bg-indigo-200 rounded-3xl backdrop-blur-[2px]"></div>
+        <div class="absolute top-4 left-6 text-black text-base font-semibold">나의 POINT</div>
+        <div class="absolute top-16 left-6 flex items-center gap-4">
+          <img class="w-12 h-12" src="https://placehold.co/50x50" alt="icon" />
+          <span class="text-black text-4xl font-semibold">0</span>
         </div>
+        <div class="absolute top-[154px] flex gap-4 left-6">
+          <div class="w-20 h-6 bg-indigo-300 rounded-3xl flex items-center justify-center text-xs font-semibold text-black">충전(현금)</div>
+          <div class="w-20 h-6 bg-indigo-300 rounded-3xl flex items-center justify-center text-xs font-semibold text-black">충전(이체)</div>
+          <div class="w-20 h-6 bg-indigo-300 rounded-3xl flex items-center justify-center text-xs font-semibold text-black">송금</div>
+        </div>
+        <div class="absolute top-[139px] left-6 w-[calc(100%-48px)] h-[2px] bg-indigo-300"></div>
+        <div class="absolute right-6 top-[114px] text-right text-red-500 text-xs font-semibold">한도 50,000</div>
+      </div>
+    </div>
 
-      <!-- Timeline Header + 전체 보기 버튼 바로 옆 -->
-      <div class="flex items-center mb-4 gap-2">
+    <!-- 타임라인 영역 스크롤 -->
+    <div class="flex-1 overflow-y-auto space-y-4">
+      <!-- Timeline Header + 전체 보기 버튼 -->
+      <div class="flex items-center gap-2 mb-4">
         <div class="text-black font-semibold text-base">Time Line</div>
         <div class="w-24 h-6 bg-neutral-100 rounded-3xl flex items-center justify-center cursor-pointer text-sm">전체 보기</div>
       </div>
@@ -131,8 +135,7 @@
           <div class="text-right text-neutral-500 text-xs">24.08.06</div>
         </div>
       </div>
-
-    </main>
-  </div>
+    </div>
+  </main>
 </body>
 </html>
