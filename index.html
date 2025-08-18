@@ -1,1 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Hanil Point</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+    }
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+    /* 사이드바 */
+    .sidebar {
+      width: 200px;
+      border-right: 1px solid #ddd;
+      padding: 20px 10px;
+      flex-shrink: 0;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    .logo img {
+      margin-right: 8px;
+    }
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .menu-item {
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .menu-item:hover {
+      background: #f0f0f0;
+    }
+    .menu-item.active {
+      background: #e5e5e5;
+      font-weight: bold;
+    }
 
+    /* 메인 */
+    .main {
+      flex: 1;
+      padding: 20px;
+    }
+    .profile {
+      display: flex;
+      align-items: center;
+      background: #f5f5f5;
+      border-radius: 12px;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+    }
+    .profile img {
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .notice {
+      background: #ffe5e5;
+      border-radius: 12px;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .qna {
+      background: #e5e5e5;
+      border-radius: 12px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    .point-box {
+      background: #dbe4ff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .point-value {
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .timeline {
+      margin-top: 20px;
+    }
+    .timeline h3 {
+      margin-bottom: 10px;
+    }
+    .timeline-item {
+      background: #f5f5f5;
+      border-radius: 12px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .timeline-item span.amount.plus {
+      color: green;
+      font-weight: bold;
+    }
+    .timeline-item span.amount.minus {
+      color: red;
+      font-weight: bold;
+    }
+    .timeline-item .date {
+      font-size: 12px;
+      color: #666;
+      text-align: right;
+    }
+
+    /* 반응형 */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+      }
+      .menu {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      .main {
+        padding: 15px;
+      }
+      .profile {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+      }
+      .profile img {
+        margin-bottom: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 사이드바 -->
+    <div class="sidebar">
+      <div class="logo">
+        <img src="https://placehold.co/25x25" alt="logo">
+        HANIL POINT
+      </div>
+      <div class="menu">
+        <div class="menu-item active">홈</div>
+        <div class="menu-item">게시판</div>
+        <div class="menu-item">공동구매</div>
+      </div>
+    </div>
+
+    <!-- 메인 -->
+    <div class="main">
+      <!-- 프로필 -->
+      <div class="profile">
+        <img src="https://placehold.co/50x50" alt="profile">
+        <div>
+          <div><b>2학년 2반 남현주</b></div>
+          <div style="font-size:12px; color:#666;">20241107@hanilgo.cnehs.kr</div>
+        </div>
+      </div>
+
+      <!-- 공지 / 안내 -->
+      <div class="notice">공지: POINT 충전 시 주의사항</div>
+      <div class="qna">[Q] POINT를 충전했는데 들어오지 않아요</div>
+
+      <!-- 나의 POINT -->
+      <div class="point-box">
+        <div>나의 POINT</div>
+        <div class="point-value">0</div>
+        <div style="text-align:right; color:red; font-size:12px;">한도 50,000</div>
+      </div>
+
+      <!-- 타임라인 -->
+      <div class="timeline">
+        <h3>Time Line</h3>
+
+        <div class="timeline-item">
+          <div>20241107(남현주) → 20241116(임지훈) :
+            <span class="amount minus">-5,000 HP</span>
+          </div>
+          <div class="date">24.08.09</div>
+        </div>
+
+        <div class="timeline-item">
+          <div>공동구매(굿즈/볼펜) :
+            <span class="amount minus">-7,200 HP</span>
+          </div>
+          <div class="date">24.08.09</div>
+        </div>
+
+        <div class="timeline-item">
+          <div>충전(현금) :
+            <span class="amount plus">+10,000 HP</span>
+          </div>
+          <div class="date">24.08.07</div>
+        </div>
+
+        <div class="timeline-item">
+          <div>충전(이체) :
+            <span class="amount plus">+5,000 HP</span>
+          </div>
+          <div class="date">24.08.06</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
