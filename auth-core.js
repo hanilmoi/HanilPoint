@@ -469,7 +469,7 @@ async function updateUserUI(user) {
       // User Box HTML 구조
       authButton.innerHTML = `
         <div class="flex items-center gap-3 w-full">
-          <img class="w-12 h-12 rounded-full" src="/-/images/profile.png" alt="user" />
+          <img class="w-12 h-12 rounded-full" src="/HanilPoint/images/profile.png" alt="user" />
           <div class="flex flex-col flex-1 min-w-0">
             <div class="text-base font-semibold text-black truncate">${displayName}</div>
             <div class="text-xs font-semibold text-black truncate">${userEmail}</div>
